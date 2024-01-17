@@ -14,7 +14,7 @@ export default createGlobalStyle`
   }
 
   body, input, button, textarea {
-    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Roboto Mono', sans-serif;
     font-size: 16px;
     outline: none;
   }
