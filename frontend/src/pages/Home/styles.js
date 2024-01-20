@@ -28,11 +28,38 @@ export const Brand = styled.div`
     font-size: 24px;
     color: ${({ theme }) => theme.COLORS.ORANGE};
   }
+
+  img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  }
 `;
-export const Menu = styled.ul``;
+export const Menu = styled.ul`
+  grid-area: menu;
+  background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+
+  padding-top: 64px;
+  text-align: center;
+
+  li {
+    margin-bottom: 24px;
+  }
+`;
 
 export const Search = styled.div``;
 export const Content = styled.div``;
 export const NewNote = styled.button`
   grid-area: newnote;
+
+  background: ${({ theme }) => theme.COLORS.ORANGE};
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-right: 8px;
+  }
 `;
