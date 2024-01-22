@@ -1,13 +1,16 @@
 import React from 'react';
 
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiSearch } from 'react-icons/fi';
 
 import { Container, Brand, Menu, Search, Content, NewNote } from './styles';
 
 import { Header } from '../../components/Header';
 import { ButtonText } from '../../components/ButtonText';
+import { Input } from '../../components/input';
+import { Section } from '../../components/Section';
 
-import NotesImg from '/public/note.svg';
+import NotesImg from '/note.svg';
+import { Note } from '../../components/Note';
 
 export function Home() {
   return (
@@ -31,9 +34,26 @@ export function Home() {
             <ButtonText title='Node' />
           </li>
         </Menu>
-        <Search></Search>
+        <Search>
+          <Input placeholder='Pesquisar pelo Titulo' icon={FiSearch} />
+        </Search>
 
-        <Content></Content>
+        <Content>
+          <Section title='Minhas Notas'>
+            <Note
+              data={{
+                title: 'NodeJS Criando servidores com JavaScript',
+                tags: [
+                  { id: 1, name: 'nodejs' },
+                  { id: 2, name: 'express' },
+                  { id: 3, name: 'postgre' },
+                  { id: 4, name: 'docker' },
+                ],
+              }}
+            />
+          </Section>
+        </Content>
+
         <NewNote>
           <FiPlus />
           Criar Notas
