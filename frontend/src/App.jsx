@@ -1,7 +1,7 @@
-import { Profile } from './pages/Profile';
+import { CreateNote } from './pages/CreateNote';
 
 function App() {
-  return <Profile />;
+  return <CreateNote />;
 }
 
 export default App;
