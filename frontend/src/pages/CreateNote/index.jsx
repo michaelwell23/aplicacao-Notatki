@@ -8,6 +8,7 @@ import { NoteItem } from '../../components/NoteItem';
 import { Textarea } from '../../components/Textarea';
 
 import { Container, Form } from './styles';
+import { Link } from 'react-router-dom';
 
 export function CreateNote() {
   return (
@@ -18,7 +19,7 @@ export function CreateNote() {
         <Form>
           <header>
             <h1>Criar nota</h1>
-            <a href=''>Voltar</a>
+            <Link to='/'>Voltar</Link>
           </header>
           <Input placeholder='Titulo' />
 

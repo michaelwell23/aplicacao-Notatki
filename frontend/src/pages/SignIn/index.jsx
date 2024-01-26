@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FiMail, FiLock } from 'react-icons/fi';
 
 import { Input } from '../../components/Input';
@@ -10,8 +11,8 @@ export function SignIn() {
     <Container>
       <Form>
         <div>
-          <img src='/public/note.svg' alt='Logo DevNotes' />
-          <h1>DevNotes</h1>
+          <img src='/public/note.svg' alt='Logo Notatki' />
+          <h1>Notatki</h1>
         </div>
         <p>Aplicação para gerenciar as suas anotações.</p>
 
@@ -22,7 +23,7 @@ export function SignIn() {
 
         <Button title='Entrar' />
 
-        <a href='#'>Criar Conta</a>
+        <Link to='/signup'>Criar Conta</Link>
       </Form>
       <Background />
     </Container>

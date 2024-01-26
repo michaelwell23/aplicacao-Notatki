@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FiMail, FiLock, FiUser } from 'react-icons/fi';
 
 import { Input } from '../../components/Input';
@@ -11,8 +12,8 @@ export function SignUp() {
       <Background />
       <Form>
         <div>
-          <img src='/public/note.svg' alt='Logo DevNotes' />
-          <h1>DevNotes</h1>
+          <img src='/public/note.svg' alt='Logo Notatki' />
+          <h1>Notatki</h1>
         </div>
         <p>Aplicação para gerenciar as suas anotações.</p>
 
@@ -24,7 +25,7 @@ export function SignUp() {
 
         <Button title='Cadastrar' />
 
-        <a href='#'>Voltar para o Login</a>
+        <Link to='/'>Voltar para o Login</Link>
       </Form>
     </Container>
   );

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.header`
@@ -16,7 +17,8 @@ export const Container = styled.header`
   padding: 0 80px;
 `;
 
-export const Profile = styled.div`
+export const Profile = styled(Link)`
+  position: relative; /* Adicionado para posicionar corretamente o tooltip */
   display: flex;
   align-items: center;
 
@@ -52,4 +54,17 @@ export const Logout = styled.button`
     color: ${({ theme }) => theme.COLORS.GRAY_100};
     font-size: 36px;
   }
+`;
+
+export const ProfileTooltip = styled.div`
+  position: absolute;
+  top: 80px; /* Ajuste para posicionar acima do perfil */
+  left: 95%;
+  transform: translateX(-50%);
+  background-color: orange;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
 `;

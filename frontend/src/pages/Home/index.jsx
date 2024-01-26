@@ -18,7 +18,7 @@ export function Home() {
       <Container>
         <Brand>
           <img src={NotesImg} alt='imagem da logo' />
-          <h1>DevNotes</h1>
+          <h1>Notatki</h1>
         </Brand>
 
         <Header />
@@ -54,7 +54,7 @@ export function Home() {
           </Section>
         </Content>
 
-        <NewNote>
+        <NewNote to='/createnotes'>
           <FiPlus />
           Criar Notas
         </NewNote>

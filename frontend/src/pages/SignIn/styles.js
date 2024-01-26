@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import backGroundImg from '../../assets/img-01.jpg';
 
