@@ -3,7 +3,7 @@ const { sign } = require('jsonwebtoken');
 
 const knex = require('../database/knex');
 const AppError = require('../utils/AppError');
-const authCOnfig = require('../config/auth');
+const authConfig = require('../configs/auth');
 
 class SessionController {
   async create(req, res) {
@@ -21,7 +21,7 @@ class SessionController {
       throw new AppError('E-mail e/ou senha estão incorretos.', 401);
     }
 
-    const { secret, expiresIn } = authCOnfig.jwt;
+    const { secret, expiresIn } = authConfig.jwt;
     const token = sign({}, secret, {
       subject: String(user.id),
       expiresIn,
