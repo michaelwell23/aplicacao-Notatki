@@ -6,8 +6,8 @@ import { Auth } from './routes/auth.routes';
 function App() {
   return (
     <BrowserRouter>
-      <Router />
-      {/* <Auth /> */}
+      {/* <Router /> */}
+      <Auth />
     </BrowserRouter>
   );
 }
