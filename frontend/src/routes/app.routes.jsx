@@ -5,7 +5,7 @@ import { Profile } from '../pages/Profile';
 import { Details } from '../pages/Details';
 import { CreateNote } from '../pages/CreateNote';
 
-export function Router() {
+export function AppRouter() {
   return (
     <Routes>
       <Route path='/' element={<Home />} />
