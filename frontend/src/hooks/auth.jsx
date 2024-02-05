@@ -17,7 +17,8 @@ function AuthProvider({ children }) {
       localStorage.setItem('@notatki:user', JSON.stringify(user));
       localStorage.setItem('@notakti:token', token);
 
-      api.defaults.headers.authorization = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
       setData({ user, token });
     } catch (error) {
       if (error.response) {
@@ -28,12 +29,36 @@ function AuthProvider({ children }) {
     }
   }
 
+  function signOut() {
+    localStorage.removeItem('@notatki:user');
+    localStorage.removeItem('@notakti:token');
+
+    setData({});
+  }
+
+  async function updateProfile({ user }) {
+    try {
+      await api.put('/users', user);
+      localStorage.setItem('@notatki:user', JSON.stringify(user));
+
+      setData({ user, token: data.token });
+
+      alert('perfil atualizado com sucesso!');
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert('Nao foi possível atualizar os dados.');
+      }
+    }
+  }
+
   useEffect(() => {
     const user = localStorage.getItem('@notatki:user');
-    const token = localStorage.getItem('@notakti:toke');
+    const token = localStorage.getItem('@notakti:token');
 
     if (token && user) {
-      api.defaults.headers.authorization = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
       setData({
         token,
@@ -43,7 +68,9 @@ function AuthProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ signIn, user: data.user }}>
+    <AuthContext.Provider
+      value={{ signIn, user: data.user, signOut, updateProfile }}
+    >
       {children}
     </AuthContext.Provider>
   );

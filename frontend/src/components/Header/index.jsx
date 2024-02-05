@@ -1,29 +1,24 @@
 import React, { useState } from 'react';
 import { RiShutDownLine } from 'react-icons/ri';
 
+import { useAuth } from '../../hooks/auth';
+
 import { Container, Profile, Logout, ProfileTooltip } from './styles';
 
 export function Header() {
-  const [isHovered, setIsHovered] = useState(false);
+  const { signOut } = useAuth();
 
   return (
     <Container>
-      <Profile
-        to='/profile'
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <Profile to='/profile'>
         <img src='https:/github.com/michaelwell23.png' alt='Fotod do usuário' />
         <div>
           <span>Bem-vindo</span>
           <strong>Michael W. Lopes</strong>
         </div>
-        {isHovered && (
-          <ProfileTooltip>Click para editar o perfil</ProfileTooltip>
-        )}
       </Profile>
 
-      <Logout>
+      <Logout onClick={signOut}>
         <RiShutDownLine />
       </Logout>
     </Container>
