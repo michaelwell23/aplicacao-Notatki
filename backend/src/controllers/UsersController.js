@@ -54,12 +54,6 @@ class UsersController {
 
     if (password && !old_password) {
       throw new AppError(
-        'É necessário informar a senha atual para efetuar a troca de senha.'
-      );
-    }
-
-    if (password == old_password) {
-      throw new AppError(
         'A nova senha deve ser diferente da senha atual. Por favor, escolha uma senha que não seja idêntica à senha atual para garantir a segurança da sua conta. '
       );
     }
