@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Input } from '../../components/Input';
 import { Header } from '../../components/Header';
@@ -11,6 +11,30 @@ import { Container, Form } from './styles';
 import { Link } from 'react-router-dom';
 
 export function CreateNote() {
+  const [links, setLinks] = useState([]);
+  const [newLink, setNewLink] = useState('');
+
+  const [tags, setTags] = useState([]);
+  const [newTag, setNewTag] = useState('');
+
+  function handleAddLink() {
+    setLinks((prevState) => [...prevState, newLink]);
+    setNewLink('');
+  }
+
+  function handleRemoveLink(LinkDeleted) {
+    setLinks((prevState) => prevState.filter((link) => link !== LinkDeleted));
+  }
+
+  function handleAddTag() {
+    setTags((prevState) => [...prevState, newTag]);
+    setNewTag('');
+  }
+
+  function handleRemoveTag(tagDeleted) {
+    setTags((prevState) => prevState.filter((tag) => tag !== tagDeleted));
+  }
+
   return (
     <Container>
       <Header />
@@ -22,17 +46,42 @@ export function CreateNote() {
             <Link to='/'>Voltar</Link>
           </header>
           <Input placeholder='Titulo' />
+          <Textarea placeholder='Observações' />
 
-          <Textarea placeholder='Descrição' />
           <Section title='Links uteis'>
-            <NoteItem value='https://google.com' />
-            <NoteItem isNew />
+            {links.map((link, index) => (
+              <NoteItem
+                key={String(index)}
+                value={link}
+                onClick={() => handleRemoveLink(link)}
+              />
+            ))}
+            <NoteItem
+              isNew
+              placeholder='Novo Link'
+              value={newLink}
+              onChange={(e) => setNewLink(e.target.value)}
+              onClick={handleAddLink}
+            />
           </Section>
 
           <Section title='Marcadores'>
             <div className='tags'>
-              <NoteItem value='react' />
-              <NoteItem isNew placeholder='Nova Tag' />
+              {tags.map((tag, index) => (
+                <NoteItem
+                  key={String(index)}
+                  value={tag}
+                  onClick={() => handleRemoveTag(tag)}
+                />
+              ))}
+
+              <NoteItem
+                isNew
+                placeholder='Nova Tag'
+                onChange={(e) => setNewTag(e.target.value)}
+                value={newTag}
+                onClick={handleAddTag}
+              />
             </div>
           </Section>
           <Button title='Salvar' />
