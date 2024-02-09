@@ -21,12 +21,15 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+    background: transparent;
     cursor: pointer;
   }
 
   button, a {
     cursor: pointer;
-    transition: filter 0.2s;
+    transition: filter 0.2s ease 0s;
+    background-color: transparent;
+    border: none;
   }
 
   button:hover, a:hover {

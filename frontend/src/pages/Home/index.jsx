@@ -1,18 +1,53 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { FiPlus, FiSearch } from 'react-icons/fi';
 
-import { Container, Brand, Menu, Search, Content, NewNote } from './styles';
+import { api } from '../../services/api';
 
 import { Header } from '../../components/Header';
 import { ButtonText } from '../../components/ButtonText';
 import { Input } from '../../components/Input';
 import { Section } from '../../components/Section';
-
-import NotesImg from '/note.svg';
 import { Note } from '../../components/Note';
 
+import NotesImg from '/note.svg';
+import { Container, Brand, Menu, Search, Content, NewNote } from './styles';
+
 export function Home() {
+  const [tags, setTags] = useState([]);
+  const [tagSelected, setTagSelected] = useState([]);
+  const [search, setSeach] = useState([]);
+  const [notes, setNotes] = useState([]);
+
+  function handleTagSelected(tagName) {
+    const alreadySelected = tagSelected.includes(tagName);
+
+    if (alreadySelected) {
+      const filteredTags = tagSelected.filter((tag) => tag !== tagName);
+      setTagSelected(filteredTags);
+    } else {
+      setTagSelected((prevState) => [...prevState, tagName]);
+    }
+  }
+
+  useEffect(() => {
+    async function fetchTags() {
+      const response = await api.get('/tags');
+      setTags(response.data);
+    }
+    fetchTags();
+  }, []);
+
+  useEffect(() => {
+    async function featchNotes() {
+      const response = await api.get(
+        `/notes?title=${search}&tags=${tagSelected}`
+      );
+      setNotes(response.data);
+    }
+
+    featchNotes();
+  }, [tagSelected, search]);
+
   return (
     <>
       <Container>
@@ -25,32 +60,37 @@ export function Home() {
 
         <Menu>
           <li>
-            <ButtonText title='Todos' isActive />
+            <ButtonText
+              title='Todos'
+              onClick={() => handleTagSelected('all')}
+              isActive={tagSelected.length === 0}
+            />
           </li>
-          <li>
-            <ButtonText title='React' />
-          </li>
-          <li>
-            <ButtonText title='Node' />
-          </li>
+          {tags &&
+            tags.map((tag) => (
+              <li key={String(tag.id)}>
+                <ButtonText
+                  title={tag.name}
+                  onClick={() => handleTagSelected(tag.name)}
+                  isActive={tagSelected.includes(tag.name)}
+                />
+              </li>
+            ))}
         </Menu>
+
         <Search>
-          <Input placeholder='Pesquisar pelo Titulo' icon={FiSearch} />
+          <Input
+            placeholder='Pesquisar pelo Titulo'
+            icon={FiSearch}
+            onChange={() => setSeach(e.target.value)}
+          />
         </Search>
 
         <Content>
           <Section title='Minhas Notas'>
-            <Note
-              data={{
-                title: 'NodeJS Criando servidores com JavaScript',
-                tags: [
-                  { id: 1, name: 'nodejs' },
-                  { id: 2, name: 'express' },
-                  { id: 3, name: 'postgre' },
-                  { id: 4, name: 'docker' },
-                ],
-              }}
-            />
+            {notes.map((note) => (
+              <Note key={String(note.id)} data={note} />
+            ))}
           </Section>
         </Content>
 

@@ -1,29 +1,37 @@
-import React, { useState } from 'react';
-import { RiShutDownLine } from 'react-icons/ri';
-
-import { api } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
+import { RiShutDownLine } from 'react-icons/ri'; // importando botão de ligar
 import { useAuth } from '../../hooks/auth';
 
-import { Container, Profile, Logout, ProfileTooltip } from './styles';
+import { api } from '../../services/api';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
+
+import { Container, Profile, Logout } from './styles';
 
 export function Header() {
   const { signOut, user } = useAuth();
+  const navigation = useNavigate();
 
-  const avatarUrl = user.avatar
+  function handleSignOut() {
+    navigation('/');
+    signOut();
+  }
+
+  const avatarURL = user.avatar
     ? `${api.defaults.baseURL}/files/${user.avatar}`
     : avatarPlaceholder;
 
   return (
     <Container>
       <Profile to='/profile'>
-        <img src={avatarUrl} alt='{user.name} avatar' />
+        <img src={avatarURL} alt={user.name} />
+
         <div>
           <span>Bem-vindo</span>
           <strong>{user.name}</strong>
         </div>
       </Profile>
 
-      <Logout onClick={signOut}>
+      <Logout onClick={handleSignOut}>
         <RiShutDownLine />
       </Logout>
     </Container>

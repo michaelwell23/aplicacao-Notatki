@@ -18,6 +18,12 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.ORANGE};
       font-size: 24px;
     }
+
+    header {
+      button {
+        background-color: none;
+      }
+    }
   }
 `;
 
