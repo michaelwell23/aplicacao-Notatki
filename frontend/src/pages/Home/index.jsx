@@ -11,6 +11,7 @@ import { Note } from '../../components/Note';
 
 import NotesImg from '/note.svg';
 import { Container, Brand, Menu, Search, Content, NewNote } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 export function Home() {
   const [tags, setTags] = useState([]);
@@ -18,7 +19,13 @@ export function Home() {
   const [search, setSeach] = useState([]);
   const [notes, setNotes] = useState([]);
 
+  const navegate = useNavigate();
+
   function handleTagSelected(tagName) {
+    if (tagName === 'all') {
+      return setTagSelected([]);
+    }
+
     const alreadySelected = tagSelected.includes(tagName);
 
     if (alreadySelected) {
@@ -27,6 +34,10 @@ export function Home() {
     } else {
       setTagSelected((prevState) => [...prevState, tagName]);
     }
+  }
+
+  function handleDetails(id) {
+    navegate(`/details/${id}`);
   }
 
   useEffect(() => {
@@ -82,14 +93,18 @@ export function Home() {
           <Input
             placeholder='Pesquisar pelo Titulo'
             icon={FiSearch}
-            onChange={() => setSeach(e.target.value)}
+            onChange={(e) => setSeach(e.target.value)}
           />
         </Search>
 
         <Content>
           <Section title='Minhas Notas'>
             {notes.map((note) => (
-              <Note key={String(note.id)} data={note} />
+              <Note
+                key={String(note.id)}
+                data={note}
+                onClick={() => handleDetails(note.id)}
+              />
             ))}
           </Section>
         </Content>
