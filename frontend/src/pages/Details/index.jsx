@@ -1,57 +1,72 @@
 import { Container, Links, Content } from './styles';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { Tag } from '../../components/Tag';
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { Section } from '../../components/Section';
 import { ButtonText } from '../../components/ButtonText';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { api } from '../../services/api';
 
 export function Details() {
+  const [data, setData] = useState(null);
+
+  const ṕarams = useParams();
+  const navigate = useNavigate();
+
+  function handleBack() {
+    navigate('/');
+  }
+
+  useEffect(() => {
+    async function fetchNote() {
+      const response = await api.get(`/notes/${ṕarams.id}`);
+      setData(response.data);
+    }
+    fetchNote();
+  }, []);
+
   return (
     <>
       <Container>
         <Header />
 
-        <main>
-          <Content>
-            <ButtonText title='Excluir Nota' />
+        {data && (
+          <main>
+            <Content>
+              <ButtonText title='Excluir Nota' />
 
-            <h1>Introdução ao Node.js</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              ultricies nisl eget purus malesuada pharetra. Nunc nec nunc vitae
-              nulla malesuada dictum sit amet ut purus. Vivamus porttitor massa
-              tellus, id varius ligula rhoncus quis. Praesent luctus mattis diam
-              id euismod. Aenean commodo ultricies metus, sed dapibus massa
-              placerat vel. Integer facilisis dapibus nisi, nec lobortis diam
-              convallis in. Pellentesque vel lacus nisi. Phasellus sagittis quam
-              purus, id lobortis neque elementum ac. Morbi rutrum neque ante, a
-              faucibus mauris interdum eget. Cras at dictum ex. Curabitur felis
-              sapien, finibus at metus at, rhoncus efficitur ligula. Duis
-              pulvinar ligula eget magna rhoncus rutrum. Donec iaculis quam quis
-              magna rhoncus varius. Morbi bibendum lorem tempor sagittis auctor.
-            </p>
+              <h1>{data.title}</h1>
+              <p>{data.description}</p>
 
-            <Section title='Links úteis'>
-              <Links>
-                <li>
-                  <a href='/'>www.blogdodev.com.br</a>
-                </li>
-                <li>
-                  <a href='/'>www.aprendizadoprogramacao.com.br</a>
-                </li>
-              </Links>
-            </Section>
+              {data.links && (
+                <Section title='Links úteis'>
+                  <Links>
+                    {data.links.map((link) => (
+                      <li key={String(link.id)}>
+                        <a href={link.url} target='_blank'>
+                          {link.url}
+                        </a>
+                      </li>
+                    ))}
+                  </Links>
+                </Section>
+              )}
 
-            <Section title='Marcadores'>
-              <Tag title='Express' />
-              <Tag title='NodeJS' />
-              <Tag title='Api-REST' />
-            </Section>
+              {data.tags && (
+                <Section title='Marcadores'>
+                  {data.tags.map((tag) => (
+                    <Tag key={tag.id} title={tag.name} />
+                  ))}
+                </Section>
+              )}
 
-            <Button title='Voltar' />
-          </Content>
-        </main>
+              <Button title='Voltar' onClick={handleBack} />
+            </Content>
+          </main>
+        )}
       </Container>
     </>
   );

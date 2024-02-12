@@ -1,0 +1,423 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-01-30T18:13:18.197Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_ec5be2fdc1db4c958294c689733108ed",
+      "parentId": "fld_ebbf7305391b4a1292b51e9365885bc7",
+      "modified": 1705160395937,
+      "created": 1704302091426,
+      "url": "{{ _.BASE_URL }}/users/",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Abigail Ros\",\n  \"email\": \"abigailros@google.com\",\n  \"password\": \"123456\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/2023.5.8" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1704390534646,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_ebbf7305391b4a1292b51e9365885bc7",
+      "parentId": "wrk_5dee6544b8db4d699dfbffb4cdeff969",
+      "modified": 1706374325230,
+      "created": 1704390526239,
+      "name": "Users",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1705157281179,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_5dee6544b8db4d699dfbffb4cdeff969",
+      "parentId": null,
+      "modified": 1704302084089,
+      "created": 1704302084089,
+      "name": "My Collection",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_d7d9e7b62d1a4667ba6a094b40a6cb7c",
+      "parentId": "fld_ebbf7305391b4a1292b51e9365885bc7",
+      "modified": 1706549201892,
+      "created": 1704734265729,
+      "url": "{{ _.BASE_URL }}/users/",
+      "name": "Update",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"old_password\": \"1234567\",\n\t\"password\": \"123456\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/2023.5.8" }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.USER_TOKEN }}" },
+      "metaSortKey": -1704734265729,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_6f1884188fbd4068805413499e57a3dc",
+      "parentId": "fld_ebbf7305391b4a1292b51e9365885bc7",
+      "modified": 1706636957693,
+      "created": 1706636393604,
+      "url": "{{ _.BASE_URL }}/users/avatar",
+      "name": "Avatar",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "id": "pair_767a470e506b4e049349eb178c545bfe",
+            "name": "avatar",
+            "value": "",
+            "description": "",
+            "type": "file"
+          }
+        ]
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "multipart/form-data" },
+        { "name": "User-Agent", "value": "insomnia/2023.5.8" },
+        {
+          "id": "pair_0d8b198691ee4e8da240d3288d46cb38",
+          "name": "",
+          "value": "",
+          "description": ""
+        },
+        {
+          "id": "pair_2bb36616e3ff4466a54810f0c1b18074",
+          "name": "",
+          "value": "",
+          "description": ""
+        },
+        {
+          "id": "pair_52ec512b0db84cf2bd6254b4ac98306a",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.USER_TOKEN }}" },
+      "metaSortKey": -1704734265829,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0005b01a77bf4e949c599c7ad25cc78a",
+      "parentId": "fld_fccc67c962164076bf52f9b8523638e2",
+      "modified": 1706549342205,
+      "created": 1704906613025,
+      "url": "{{ _.BASE_URL }}/notes/1",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"title\": \"Introdução ao Node.js\",\n\t\"description\":\"Ideal para construir aplicações web rápidas e eficientes.\",\n\t\"tags\": [\"node.js\", \"server-side\"],\n\t\"links\": [\"link1\", \"link2\"]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/2023.5.8" }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.USER_TOKEN }}" },
+      "metaSortKey": -1704906613025,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_fccc67c962164076bf52f9b8523638e2",
+      "parentId": "wrk_5dee6544b8db4d699dfbffb4cdeff969",
+      "modified": 1706374312963,
+      "created": 1704906606519,
+      "name": "Notes",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1705157280979,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_69717fc2fbf4463fb31dc2a795d4a49d",
+      "parentId": "fld_fccc67c962164076bf52f9b8523638e2",
+      "modified": 1706549416057,
+      "created": 1704993304543,
+      "url": "{{ _.BASE_URL }}/notes/1",
+      "name": "Show",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [{ "name": "User-Agent", "value": "insomnia/2023.5.8" }],
+      "authentication": { "type": "bearer", "token": "{{ _.USER_TOKEN }}" },
+      "metaSortKey": -1704993304543,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_357ebb53480f4eb79c7d2e3de280c141",
+      "parentId": "fld_fccc67c962164076bf52f9b8523638e2",
+      "modified": 1706549435642,
+      "created": 1704993895691,
+      "url": "{{ _.BASE_URL }}/notes/2",
+      "name": "Delete",
+      "description": "",
+      "method": "DELETE",
+      "body": { "mimeType": "application/json", "text": "" },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/2023.5.8" }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.USER_TOKEN }}" },
+      "metaSortKey": -1704820439377,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5a8ed248d1444e338ba7176d805d3cca",
+      "parentId": "fld_fccc67c962164076bf52f9b8523638e2",
+      "modified": 1706549425637,
+      "created": 1704994457044,
+      "url": "{{ _.BASE_URL }}/notes",
+      "name": "Index",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_12743acd8f5d408898911c45d9e9385a",
+          "name": "user_id",
+          "value": "1",
+          "description": ""
+        },
+        {
+          "id": "pair_37f1108d034f46fabc13109db2747599",
+          "name": "title",
+          "value": "node.js",
+          "description": ""
+        },
+        {
+          "id": "pair_245ce0fed6474649a6bf31f77d8293a7",
+          "name": "tags",
+          "value": "node.js",
+          "description": ""
+        },
+        {
+          "id": "pair_ffda4f2daf714cd8b7d77e961016ea2f",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "headers": [{ "name": "User-Agent", "value": "insomnia/2023.5.8" }],
+      "authentication": { "type": "bearer", "token": "{{ _.USER_TOKEN }}" },
+      "metaSortKey": -1704993304643,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0415ba38e3bd4dbbae810103a017301a",
+      "parentId": "fld_a07e44f3caad4dc1b9487703270bd629",
+      "modified": 1706549728901,
+      "created": 1705157284174,
+      "url": "{{ _.BASE_URL }}/tags/",
+      "name": "Index",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [{ "name": "User-Agent", "value": "insomnia/2023.5.8" }],
+      "authentication": { "type": "bearer", "token": "{{ _.USER_TOKEN }}" },
+      "metaSortKey": -1705157284174,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_a07e44f3caad4dc1b9487703270bd629",
+      "parentId": "wrk_5dee6544b8db4d699dfbffb4cdeff969",
+      "modified": 1706374328180,
+      "created": 1705157280479,
+      "name": "Tags",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1705157281279,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_fb1319072f4c467093a093d9169d0862",
+      "parentId": "fld_4e9c0f88a2994c4cbc6f152ab4d9fb3a",
+      "modified": 1706549237773,
+      "created": 1706374333873,
+      "url": "{{ _.BASE_URL }}/session",
+      "name": "Create Session",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\":\"sara.riteley4@myspace.com\",\n\t\"password\": \"123456\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/2023.5.8" }
+      ],
+      "authentication": { "type": "bearer", "token": "" },
+      "metaSortKey": -1706374333873,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_4e9c0f88a2994c4cbc6f152ab4d9fb3a",
+      "parentId": "wrk_5dee6544b8db4d699dfbffb4cdeff969",
+      "modified": 1706374285830,
+      "created": 1706374251510,
+      "name": "Session",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1705157280579,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_6f1884188fbd4068805413499e57a3dc.graphql",
+      "parentId": "req_6f1884188fbd4068805413499e57a3dc",
+      "modified": 1706636800667,
+      "created": 1706636393604,
+      "url": "{{ _.BASE_URL }}/users/avatar",
+      "name": "Avatar",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"query\":\"\\n    query IntrospectionQuery {\\n      __schema {\\n        \\n        queryType { name }\\n        mutationType { name }\\n        subscriptionType { name }\\n        types {\\n          ...FullType\\n        }\\n        directives {\\n          name\\n          description\\n          \\n          locations\\n          args {\\n            ...InputValue\\n          }\\n        }\\n      }\\n    }\\n\\n    fragment FullType on __Type {\\n      kind\\n      name\\n      description\\n      \\n      fields(includeDeprecated: true) {\\n        name\\n        description\\n        args {\\n          ...InputValue\\n        }\\n        type {\\n          ...TypeRef\\n        }\\n        isDeprecated\\n        deprecationReason\\n      }\\n      inputFields {\\n        ...InputValue\\n      }\\n      interfaces {\\n        ...TypeRef\\n      }\\n      enumValues(includeDeprecated: true) {\\n        name\\n        description\\n        isDeprecated\\n        deprecationReason\\n      }\\n      possibleTypes {\\n        ...TypeRef\\n      }\\n    }\\n\\n    fragment InputValue on __InputValue {\\n      name\\n      description\\n      type { ...TypeRef }\\n      defaultValue\\n      \\n      \\n    }\\n\\n    fragment TypeRef on __Type {\\n      kind\\n      name\\n      ofType {\\n        kind\\n        name\\n        ofType {\\n          kind\\n          name\\n          ofType {\\n            kind\\n            name\\n            ofType {\\n              kind\\n              name\\n              ofType {\\n                kind\\n                name\\n                ofType {\\n                  kind\\n                  name\\n                  ofType {\\n                    kind\\n                    name\\n                  }\\n                }\\n              }\\n            }\\n          }\\n        }\\n      }\\n    }\\n  \",\"operationName\":\"IntrospectionQuery\"}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/2023.5.8" }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.USER_TOKEN }}" },
+      "metaSortKey": -1704734265829,
+      "isPrivate": true,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_c1edabd91f220cc0b77c162defc99cc77e2d9add",
+      "parentId": "wrk_5dee6544b8db4d699dfbffb4cdeff969",
+      "modified": 1706546776747,
+      "created": 1704302084103,
+      "name": "Base Environment",
+      "data": {
+        "USER_TOKEN": "{% response 'body', 'req_fb1319072f4c467093a093d9169d0862', 'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+      },
+      "dataPropertyOrder": { "&": ["USER_TOKEN"] },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1704302084104,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_c1edabd91f220cc0b77c162defc99cc77e2d9add",
+      "parentId": "wrk_5dee6544b8db4d699dfbffb4cdeff969",
+      "modified": 1704302084110,
+      "created": 1704302084110,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "env_8597236002a649d4a454916e5f97d7d0",
+      "parentId": "env_c1edabd91f220cc0b77c162defc99cc77e2d9add",
+      "modified": 1706546461553,
+      "created": 1706546395144,
+      "name": "DEV",
+      "data": { "BASE_URL": "http://localhost:3333" },
+      "dataPropertyOrder": { "&": ["BASE_URL"] },
+      "color": "#04ff00",
+      "isPrivate": false,
+      "metaSortKey": 1706546395144,
+      "_type": "environment"
+    }
+  ]
+}
