@@ -16,8 +16,19 @@ export function Details() {
   const ṕarams = useParams();
   const navigate = useNavigate();
 
-  function handleBack() {
-    navigate('/');
+  function handleBackNavigate() {
+    navigate(-1);
+  }
+
+  async function handleRemoveNote() {
+    const confirm = window.confirm(
+      'Você quer mesmo prosseguir com a exclusão da nota?'
+    );
+
+    if (confirm) {
+      await api.delete(`/notes/${ṕarams.id}`);
+      navigate(-1);
+    }
   }
 
   useEffect(() => {
@@ -36,7 +47,7 @@ export function Details() {
         {data && (
           <main>
             <Content>
-              <ButtonText title='Excluir Nota' />
+              <ButtonText title='Excluir Nota' onClick={handleRemoveNote} />
 
               <h1>{data.title}</h1>
               <p>{data.description}</p>
@@ -63,7 +74,7 @@ export function Details() {
                 </Section>
               )}
 
-              <Button title='Voltar' onClick={handleBack} />
+              <Button title='Voltar' onClick={handleBackNavigate} />
             </Content>
           </main>
         )}
