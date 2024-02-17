@@ -2,7 +2,6 @@
   <img alt="Notatki" title="Notatki" src="https://raw.githubusercontent.com/michaelwell23/aplicacao-Notatki/master/frontend/public/appLogo.png" width="300px" />
 </h1>
 
-## <p>Seu App de Notas</p>
 
 ### Tecnologias utilizadas
 
