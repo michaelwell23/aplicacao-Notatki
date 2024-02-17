@@ -5,7 +5,7 @@
 ---
 
 <p align="center">
-  <img alt="Login" src="../.github/createNote.png" width="800px" /><br>
+  <img alt="Login" src="../.github/createAccount.png" width="800px" /><br>
   <img alt="Login" src="../.github/loginPage.png" width="800px" /><br>
   <img alt="Login" src="../.github/dashboard.png" width="800px" /><br>
   <img alt="Login" src="../.github/createNote.png" width="800px" /><br>
