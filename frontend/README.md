@@ -1,18 +1,21 @@
 <h1 align="center">
-  <img alt="logo" title="logo" src="https://raw.githubusercontent.com/michaelwell23/agendamento-de-consultas-medicas/master/mobile/src/assets/logo%403x.png" width="500px" />
+    <img alt="Notatki" title="Notatki" src="https://raw.githubusercontent.com/michaelwell23/aplicacao-Notatki/37690b0031bedb51044407463db9d7c8f1301f99/frontend/public/appLogo.png" width="500px" />
 </h1>
-
-<p align="center">
- +Clinica Saúde é um sistema de agendamento para consultas.
-</p>
 
 ---
 
 <p align="center">
-  <img alt="Login" src="./.github/img1.png" width="800px" /><br>
-  <img alt="Cadastro" src="./.github/img2.png" width="800px" />
-  <img alt="dashboard" src="./.github/img3.png" width="800px" />
-  <img alt="Editar perfil" src="./.github/img4.png" width="800px" />
+  <img alt="Login" src="../.github/createNote.png" width="800px" /><br>
+  <img alt="Login" src="../.github/login.png" width="800px" /><br>
+  <img alt="Login" src="../.github/dashboard.png" width="800px" /><br>
+  <img alt="Login" src="../.github/createNote.png" width="800px" /><br>
+  <img alt="Login" src="../.github/editProfile.png" width="800px" /><br>
+</p>
+
+---
+
+<p>
+  Notakti é uma WebApp de criação de notas. Nesse aplicativo o usuário consegue criar, editar e excluir suas notas. É um app útil para salvar suas notas e links uteis que pode te auxiliar nos projetos e até nos estudos.
 </p>
 
 ---
@@ -20,13 +23,8 @@
 ### Ferramentas utilizadas na aplicação:
 
 - [Axios](https://github.com/axios/axios)
-- [Date-fns](https://date-fns.org/)
-- [jest](https://jestjs.io/pt-BR/)
-- [ReactJS](https://github.com/facebook/react).
-- [React Toastify](https://github.com/fkhadra/react-toastify)
+- [ReactJS Vitas](https://vitejs.dev/).
 - [Styled-components](https://github.com/styled-components/styled-components)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Yup](https://github.com/jquense/yup)
 
 ### Ferramentas utilizadas no ambiente de desenvolvimento:
 

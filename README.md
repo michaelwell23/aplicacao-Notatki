@@ -1,8 +1,8 @@
 <h1 align="center">
-  <img alt="Notatki" title="Notatki" src="" width="400px" />
+  <img alt="Notatki" title="Notatki" src="https://raw.githubusercontent.com/michaelwell23/aplicacao-Notatki/37690b0031bedb51044407463db9d7c8f1301f99/frontend/public/appLogo.png" width="500px" />
 </h1>
 
----
+## <p>Seu App de Notas</p>
 
 ### Tecnologias utilizadas
 
