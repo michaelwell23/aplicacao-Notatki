@@ -1,17 +1,48 @@
 const UserCreateService = require('../src/services/UserCreateServices');
 const UserRepositoryInMemory = require('../src/repositories/UserRepositoryInMemory');
+const AppError = require('../src/utils/AppError');
 
-it('user should be create', async () => {
-  const user = {
-    name: 'User Test',
-    email: 'user.test@email.com',
-    password: '123456',
-  };
+// describe para agrupar testes por assunto
+describe('UserCreateService', () => {
+  let userRepositoryInMemory = null;
+  let userCreateService = null;
 
-  const userRepositoryInMemory = new UserRepositoryInMemory();
-  const userCreateService = new UserCreateService(userRepositoryInMemory);
+  beforeEach(() => {
+    // executado antes de cada teste
+    userRepositoryInMemory = new UserRepositoryInMemory();
+    userCreateService = new UserCreateService(userRepositoryInMemory);
+  });
 
-  const userCreated = await userCreateService.execute(user);
+  // o it é uma função que recebe dois parâmetros, o primeiro é a descrição do teste, e o segundo é a função que vai executar o teste
+  it('user should be create', async () => {
+    // verificar se o usuário é criado com sucesso
+    const user = {
+      name: 'User Test',
+      email: 'user@test.com',
+      password: '123',
+    };
 
-  expect(userCreated).toHaveProperty('id');
+    const userCreated = await userCreateService.execute(user);
+    expect(userCreated).toHaveProperty('id');
+    // expectativa de que dentro do userCreated tenha uma propriedade de id
+  });
+
+  it('user not should be create with exists email', async () => {
+    const user1 = {
+      name: 'User Test 1',
+      email: 'user@test.com',
+      password: '123',
+    };
+
+    const user2 = {
+      name: 'User Test 2',
+      email: 'user@test.com',
+      password: '456',
+    };
+
+    await userCreateService.execute(user1);
+    await expect(userCreateService.execute(user2)).rejects.toEqual(
+      new AppError('E-mail já está em uso!')
+    );
+  });
 });
