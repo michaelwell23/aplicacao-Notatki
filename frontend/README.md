@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Notatki" title="Notatki" src="https://raw.githubusercontent.com/michaelwell23/aplicacao-Notatki/37690b0031bedb51044407463db9d7c8f1301f99/frontend/public/appLogo.png" width="500px" />
+    <img alt="Notatki" title="Notatki" src="https://raw.githubusercontent.com/michaelwell23/aplicacao-Notatki/master/frontend/public/appLogo.png" width="250px" />
 </h1>
 
 ---
